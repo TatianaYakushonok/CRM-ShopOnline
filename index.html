@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Добавить товар</h1>
+
+  <form action="https://jsonplaceholder.typicode.com/posts" method="POST">
+    <fieldset>
+      <div>
+        <label for="name">Наименование</label>
+        <br>
+        <input type="text" id="name" name="name">
+      </div>
+      
+      <div>
+        <label for="category">Категория</label>
+        <br>
+        <input type="text" id="category" name="category">
+      </div>
+      
+      <div>
+        <label for="units">Единицы измерения</label>
+        <br>
+        <input type="text" id="units" name="units">
+      </div>
+
+      <div>
+        <label for="discount">Дисконт</label>
+        <br>
+        <input type="checkbox" name="discount" id="discount">
+        <input type="text" name="discount" disabled>
+      </div>
+
+      <div>
+        <label for="description">Описание</label>
+        <br>
+        <textarea name="description" id="description" cols="30" rows="5"></textarea>
+      </div>
+
+      <div>
+        <label for="count">Количество</label>
+        <br>
+        <input type="number" id="count" min="1" name="count">
+      </div>
+      
+      <div>
+        <label for="price">Цена</label>
+        <br>
+        <input type="number" id="price" name="price" min="0.01" step="0.01">
+      </div>
+
+      <input type="file" name="image" accept="image/png, image/jpeg">
+    </fieldset>
+
+    <button type="submit">Добавить товар</button>
+  </form>
+</body>
+</html>
