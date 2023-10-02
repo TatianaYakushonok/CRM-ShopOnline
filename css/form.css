@@ -26,7 +26,7 @@
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.20);
 }
 
-.form__field {
+.form__field:not(:last-child) {
   margin-bottom: 12px;
 }
 
@@ -60,7 +60,7 @@
 
 .form__checkbox {
   position: relative;
-  width: 7.64%;;
+  width: 40px;
   height: 40px;
   margin-right: 10px;
   border-radius: 6px;
