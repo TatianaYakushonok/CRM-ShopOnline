@@ -1,8 +1,9 @@
-.form {
+.modal__main {
+  position: relative;
   max-width: 792px;
   min-height: 823px;
   margin: 20px auto;
-  padding: 32px 106px 62px;
+  padding: 32px 106px;
   background: #f2f0f9;
   box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.25);
 }
@@ -23,7 +24,7 @@
   padding: 28px;
   border-radius: 5px;
   background-color: #fff;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.20);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
 }
 
 .form__field:not(:last-child) {
@@ -73,12 +74,12 @@
 
 .form__checkbox::after {
   position: absolute;
-  content: '';
+  content: "";
   inset: 0;
   display: block;
   background: url("../img/icon-check.svg") no-repeat center;
   opacity: 0;
-  transition: opacity .3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .form__checkbox:checked::after {
@@ -103,4 +104,13 @@
   background: #6d5bd0;
   text-transform: uppercase;
   float: right;
+}
+
+.form__btn_close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  width: 20px;
+  height: 20px;
+  background: url("../img/close.svg") center/cover no-repeat;
 }
