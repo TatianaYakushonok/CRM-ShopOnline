@@ -14,48 +14,43 @@
     <fieldset class="form__fieldset">
       <div class="form__field">
         <label class="form__label" for="name">Наименование</label>
-        <br>
         <input class="form__input" type="text" id="name" name="name">
       </div>
       
       <div class="form__field">
         <label class="form__label" for="category">Категория</label>
-        <br>
         <input class="form__input" type="text" id="category" name="category">
       </div>
       
       <div class="form__field">
         <label class="form__label" for="units">Единицы измерения</label>
-        <br>
         <input class="form__input" type="text" id="units" name="units">
       </div>
 
       <div class="form__field">
         <label class="form__label" for="discount">Дисконт</label>
-        <br>
-        <input class="form__checkbox" type="checkbox" name="discount" id="discount">
-        <input class="form__input" type="text" name="discount" disabled>
+        <div>
+          <input class="form__checkbox" type="checkbox" name="discount" id="discount">
+          <input class="form__input form__input_discount" type="text" name="discount" disabled>
+        </div>
       </div>
 
       <div class="form__field">
         <label class="form__label" for="description">Описание</label>
-        <br>
         <textarea class="form__textarea" name="description" id="description" cols="30" rows="5"></textarea>
       </div>
 
       <div class="form__field">
         <label class="form__label" for="count">Количество</label>
-        <br>
         <input class="form__input" type="number" id="count" min="1" name="count">
       </div>
       
       <div class="form__field">
         <label class="form__label" for="price">Цена</label>
-        <br>
         <input class="form__input" type="number" id="price" name="price" min="0.01" step="0.01">
       </div>
 
-      <input class="form__file" type="file" name="image" accept="image/png, image/jpeg">
+      <!--<input class="form__file" type="file" name="image" accept="image/png, image/jpeg">-->
     </fieldset>
 
     <button class="form__btn" type="submit">Добавить товар</button>
