@@ -1,7 +1,7 @@
 .form {
   max-width: 792px;
   min-height: 823px;
-  margin: 0 auto;
+  margin: 20px auto;
   padding: 32px 106px 62px;
   background: #f2f0f9;
   box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.25);
@@ -11,7 +11,9 @@
   margin-bottom: 43px;
   font-size: 24px;
   font-weight: 700;
+  color: #6e6893;
   letter-spacing: 2.4px;
+  text-transform: uppercase;
 }
 
 .form__fieldset {
@@ -32,6 +34,11 @@
   display: block;
   width: 100%;
   margin-bottom: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  color: #6e6893;
+  text-transform: uppercase;
 }
 
 .form__input {

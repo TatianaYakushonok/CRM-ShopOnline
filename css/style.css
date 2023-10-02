@@ -1,3 +1,12 @@
+/* inter-regular - cyrillic */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/inter-v13-cyrillic-regular.woff2') format('woff2');
+  font-display: swap;
+}
+
 /* inter-600 - cyrillic */
 @font-face { 
   font-family: 'Inter';
@@ -38,12 +47,9 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-tap-highlight-color: transparent;
-  font-size: 12px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 400;
   line-height: normal;
-  letter-spacing: 0.6px;
-  text-transform: uppercase;
-  color: #6e6893;
   background-color: #fff;
 }
 
