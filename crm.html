@@ -12,6 +12,7 @@
     type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/style.css">
   <script src="js/script.js" defer></script>
+  <script src="js/einstein.js" defer></script>
   <title>CMS - ShopOnline</title>
 </head>
 
@@ -75,10 +76,20 @@
               изображение</label>
             <input class="form__file" type="file" id="image" name="image"
               accept="image/png, image/jpeg">
+
+            <div class="form__file-prewiev">
+              <img class="form__file-img" src="/" alt="Изображение товара">
+            </div>
           </div>
         </fieldset>
 
-        <button class="form__btn" type="submit">Добавить товар</button>
+        <div class="form__total-price-container">
+          <p class="form__total-price">
+            Итоговая стоимость: <span class="form__total-sum">$ 900.00</span>
+          </p>
+          <button class="form__btn" type="submit">Добавить товар</button>
+        </div>
+
         <button class="form__btn_close" type="button"></button>
       </form>
     </div>
