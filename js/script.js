@@ -15,30 +15,26 @@
 // Модуль 4 урок 2
 {
   const nameGoods = prompt('Введите наименование товара');
-  let amount = parseInt(prompt('Введите количество товара'));
-
-  if (!isNaN(amount)) {
-    alert('Все верно. Вы ввели количество числом!');
-  } else {
-    alert('Вы ввели количество не числом! Введите число');
-    amount = parseInt(prompt('Введите количество товара'));
-  }
-
   const category = prompt('Введите категорию товара');
-  let price = parseInt(prompt('Введите цену товара'));
+  const amount = parseInt(prompt('Введите количество товара'));
 
-  if (!isNaN(price)) {
-    alert('Все верно. Вы ввели цену числом!');
-  } else {
-    alert('Вы ввели цену не числом! Введите число');
-    price = parseInt(prompt('Введите цену товара'));
+  if (isNaN(amount)) {
+    console.log('Вы ввели некорректные данные! Введите число');
   }
 
-  const totalPrice = amount * price;
+  const price = parseInt(prompt('Введите цену товара'));
 
-  console.group('Модуль 4 урок 2');
-  console.log(typeof amount);
-  console.log(typeof price);
-  console.log(`На складе ${amount} единицы товара "${nameGoods}" на сумму ${totalPrice.toLocaleString()} ₽`);
-  console.groupEnd();
+  if (isNaN(price)) {
+    console.log('Вы ввели некорректные данные! Введите число');
+  }
+
+  if (!isNaN(amount) && !isNaN(price)) {
+    const totalPrice = amount * price;
+
+    console.group('Модуль 4 урок 2');
+    console.log(typeof amount);
+    console.log(typeof price);
+    console.log(`На складе ${amount} единицы товара "${nameGoods}" на сумму ${totalPrice.toLocaleString()} ₽`);
+    console.groupEnd();
+  }
 }
