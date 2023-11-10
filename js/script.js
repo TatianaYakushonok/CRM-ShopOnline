@@ -14,7 +14,7 @@
 
 // Модуль 4 урок 2
 {
-  const nameGoods = prompt('Введите наименование товара');
+  /*const nameGoods = prompt('Введите наименование товара');
   const category = prompt('Введите категорию товара');
   const amount = parseInt(prompt('Введите количество товара'));
   const price = parseInt(prompt('Введите цену товара'));
@@ -31,5 +31,5 @@
     console.group('Модуль 4 урок 2');
     console.log('Вы ввели некорректные данные! Введите число');
     console.groupEnd();
-  }
+  }*/
 }
