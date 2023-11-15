@@ -1,0 +1,59 @@
+.table__goods {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table__row {
+  border-top: 1px solid #c6c2de;
+  border-bottom: 1px solid #c6c2de;
+}
+
+.table__row_head {
+  background-color: var(--input-bg-color);
+}
+
+.table__title {
+  padding: 15px;
+  color: var(--title-color);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+.table__title_units,
+.table__title_count,
+.table__ceil_units,
+.table__ceil_count {
+  text-align: center;
+}
+
+.table__title_price,
+.table__title_total-sum,
+.table__ceil_price,
+.table__ceil_total-sum {
+  text-align: right;
+}
+
+.table__ceil {
+  padding: 21px 15px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.table__ceil_units {
+  color: var(--title-color);
+}
+
+.table__ceil_btn {
+}
+
+.table__btn {
+  width: 20px;
+  height: 20px;
+}
+
+.table__btn:not(:last-child) {
+  margin-right: 20px;
+}

@@ -1,0 +1,10 @@
+.header {
+  padding: 79px 0 20px;
+}
+
+.header__title-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 10px;
+}

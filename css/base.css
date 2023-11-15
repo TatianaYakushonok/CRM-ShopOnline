@@ -50,7 +50,8 @@ body {
   font-size: 16px;
   font-weight: 400;
   line-height: normal;
-  background-color: #fff;
+  color: var(--text-color);
+  background-color: var(--bg-color);
 }
 
 img,
@@ -71,6 +72,7 @@ h1,
 h2,
 h3,
 p,
+hr,
 fieldset {
   margin: 0;
 }
@@ -81,7 +83,58 @@ fieldset {
 }
 
 input,
-textarea {
+textarea,
+hr {
   border: none;
   outline: none;
+}
+
+.container {
+  --width-container: 1100px;
+  --padding-container: 30px;
+  max-width: calc(var(--width-container) + var(--padding-container) * 2);
+  padding: 0 var(--padding-container);
+  margin: 0 auto;
+}
+
+.section__container {
+  background-color: #fff;
+  box-shadow: var(--container-box-shadow);
+}
+
+.section__title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--title-color);
+  letter-spacing: 2.4px;
+  text-transform: uppercase;
+}
+
+.section__total-price {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--title-color);
+}
+
+.section__total-sum {
+  color: var(--btn-color);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.section__line {
+  height: 1px;
+  background-color: #c6c2de;
+}
+
+.section__btn-goods {
+  display: block;
+  padding: 10px 25px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  color: #fff;
+  border-radius: 6px;
+  background-color: var(--btn-color);
+  text-transform: uppercase;
 }
