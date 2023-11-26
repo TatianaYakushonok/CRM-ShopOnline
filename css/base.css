@@ -83,7 +83,7 @@ fieldset {
 }
 
 input,
-textarea,
+select,
 hr {
   border: none;
   outline: none;
@@ -137,4 +137,16 @@ hr {
   border-radius: 6px;
   background-color: var(--btn-color);
   text-transform: uppercase;
+}
+
+@media (max-width: 830px) {
+  .container {
+    --padding-container: 20px;
+  }
+}
+
+@media (max-width: 470px) {
+  .container {
+    --padding-container: 10px;
+  }
 }

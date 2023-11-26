@@ -6,5 +6,23 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 10px;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  padding: 0 20px 7px 20px;
+}
+
+@media (max-width: 830px) {
+  .header {
+    padding-top: 40px;
+  }
+}
+
+@media (max-width: 470px) {
+  .header {
+    padding-top: 20px;
+  }
+
+  .header__title-container {
+    padding: 0 10px 7px 10px;
+  }
 }

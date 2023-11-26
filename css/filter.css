@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   gap: 20px;
   padding: 15px 20px;
 }
@@ -41,4 +42,33 @@
   left: 10px;
   bottom: 0;
   transform: translateY(-50%);
+}
+
+.filter__btn-goods {
+  padding: 10px 16px;
+}
+
+@media (max-width: 830px) {
+  .filter__btn {
+    order: 1;
+  }
+
+  .filter__btn-goods {
+    order: 2;
+  }
+
+  .filter__form-search {
+    max-width: 100%;
+    order: 3;
+  }
+}
+
+@media (max-width: 470px) {
+  .filter__container {
+    padding: 10px;
+  }
+
+  .filter__btn-text {
+    display: none;
+  }
 }

@@ -1,5 +1,13 @@
+.table {
+  padding-bottom: 110px;
+}
+
+.table__container {
+  overflow-x: auto;
+}
+
 .table__goods {
-  width: 100%;
+  width: 1100px;
   border-collapse: collapse;
 }
 
@@ -13,13 +21,46 @@
 }
 
 .table__title {
-  padding: 15px;
+  padding: 15px 7.5px;
   color: var(--title-color);
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.6px;
   text-transform: uppercase;
   text-align: left;
+}
+
+.table__title:first-child {
+  padding-left: 15px;
+}
+
+.table__title:last-child {
+  padding-right: 15px;
+}
+
+.table__title_id {
+  width: 100px;
+}
+
+.table__title_name {
+  width: 305px;
+}
+
+.table__title_category {
+  width: 175px;
+}
+
+.table__title_units {
+  width: 68px;
+}
+
+.table__title_count {
+  width: 106px;
+}
+
+.table__title_price,
+.table__title_total-sum {
+  width: 95px;
 }
 
 .table__title_units,
@@ -37,9 +78,17 @@
 }
 
 .table__ceil {
-  padding: 21px 15px;
+  padding: 19px 7.5px 20px;
   font-size: 14px;
   font-weight: 500;
+}
+
+.table__ceil:first-child {
+  padding-left: 15px;
+}
+
+.table__ceil:last-child {
+  padding-right: 15px;
 }
 
 .table__ceil_units {
@@ -47,6 +96,10 @@
 }
 
 .table__ceil_btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 20px;
 }
 
 .table__btn {
@@ -54,6 +107,65 @@
   height: 20px;
 }
 
-.table__btn:not(:last-child) {
-  margin-right: 20px;
+.table__footer {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 0.6px;
+  color: var(--title-color);
+  background-color: #f4f2ff;
+}
+
+.table__foot {
+  padding: 15px 16px;
+}
+
+.table__foot:first-child {
+  padding-left: 20px;
+}
+
+.table__select-container {
+  position: relative;
+  display: inline-block;
+}
+
+.table__select-container::after {
+  content: url('../img/polygon.svg');
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  pointer-events: none;
+}
+
+.table__select {
+  appearance: none;
+  padding-right: 10px;
+  font-weight: 600;
+  color: var(--title-color);
+  background-color: #f4f2ff;
+}
+
+.table__content-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  column-gap: 50px;
+}
+
+.table__btn-container {
+  display: flex;
+  column-gap: 50px;
+  padding-right: 5px;
+}
+
+@media (max-width: 830px) {
+  .table {
+    padding-bottom: 55px;
+  }
+}
+
+@media (max-width: 470px) {
+  .table {
+    padding-bottom: 20px;
+  }
 }
