@@ -137,6 +137,19 @@ hr {
   border-radius: 6px;
   background-color: var(--btn-color);
   text-transform: uppercase;
+  transition: color, background-color 0.3s ease-in-out;
+}
+
+.section__btn-goods:hover,
+.section__btn-goods:focus {
+  color: var(--btn-color);
+  background-color: #fff;
+  border: 1px solid var(--btn-color);
+}
+
+.section__btn-goods:active {
+  color: #fff;
+  background-color: var(--title-color);
 }
 
 @media (max-width: 830px) {

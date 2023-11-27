@@ -15,6 +15,26 @@
   color: var(--text-color);
   border-radius: 6px;
   border: 1px solid #c6c2de;
+  transition: color, background-color 0.3s ease-in-out;
+}
+
+.filter__btn-icon {
+  color: #8b83ba;
+}
+
+.filter__btn:hover,
+.filter__btn:focus {
+  color: #fff;
+  background-color: var(--btn-color);
+}
+
+.filter__btn:hover .filter__btn-icon,
+.filter__btn:focus .filter__btn-icon {
+  color: #fff;
+}
+
+.filter__btn:active {
+  background-color: var(--title-color);
 }
 
 .filter__form-search {
@@ -30,6 +50,14 @@
   font-size: 12px;
   border-radius: 6px;
   background-color: var(--input-bg-color);
+}
+
+.filter__input-search::placeholder {
+  transition: color 0.3s ease-in-out;
+}
+
+.filter__input-search:focus::placeholder {
+  color: transparent;
 }
 
 .filter__input-search::placeholder {

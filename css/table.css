@@ -105,6 +105,15 @@
 .table__btn {
   width: 20px;
   height: 20px;
+  transition: border, transform 0.3s ease-in-out;
+}
+
+.table__btn:hover {
+  transform: scale(1.1);
+}
+
+.table__btn:focus {
+  border: 1px solid var(--title-color);
 }
 
 .table__footer {
@@ -117,7 +126,7 @@
 }
 
 .table__foot {
-  padding: 15px 16px;
+  padding: 12px 16px;
 }
 
 .table__foot:first-child {
@@ -154,8 +163,21 @@
 
 .table__btn-container {
   display: flex;
-  column-gap: 50px;
-  padding-right: 5px;
+  column-gap: 30px;
+}
+
+.table__btn-pagination {
+  width: 20px;
+  height: 20px;
+  transition: border, transform 0.3s ease-in-out;
+}
+
+.table__btn-pagination:hover {
+  transform: scale(1.2);
+}
+
+.table__btn-pagination:focus {
+  border: 1px solid var(--title-color);
 }
 
 @media (max-width: 830px) {
