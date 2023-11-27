@@ -1,5 +1,5 @@
 .overlay {
-  /*display: none;*/
+  display: none;
   position: fixed;
   inset: 0;
   padding: 30px;
@@ -170,6 +170,7 @@
 .form__btn-container {
   display: flex;
   justify-content: space-between;
+  align-self: flex-end;
   gap: 10px 24px;
 }
 
@@ -196,6 +197,7 @@
 }
 
 .form__file-prewiev {
+  display: none;
   position: relative;
   width: 100%;
   width: max-content;
