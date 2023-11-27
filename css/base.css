@@ -39,7 +39,7 @@ html {
 body {
   position: relative;
   overflow-x: hidden;
-  min-width: 320px;
+  /*min-width: 320px;*/
   min-height: 100vh;
   font-family: Inter, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -83,6 +83,7 @@ fieldset {
 }
 
 input,
+textarea,
 select,
 hr {
   border: none;
@@ -135,6 +136,7 @@ hr {
   text-align: center;
   color: #fff;
   border-radius: 6px;
+  border: 1px solid var(--btn-color);
   background-color: var(--btn-color);
   text-transform: uppercase;
   transition: color, background-color 0.3s ease-in-out;
@@ -144,7 +146,6 @@ hr {
 .section__btn-goods:focus {
   color: var(--btn-color);
   background-color: #fff;
-  border: 1px solid var(--btn-color);
 }
 
 .section__btn-goods:active {

@@ -1,5 +1,5 @@
 .overlay {
-  display: none;
+  /*display: none;*/
   position: fixed;
   inset: 0;
   padding: 30px;
@@ -43,8 +43,8 @@
     'category description'
     'units count'
     'discount price'
-    '. file';
-  grid-auto-columns: 250px;
+    'file file';
+  grid-template-columns: 1fr 1fr;
   column-gap: 24px;
   max-width: 580px;
   min-height: auto;
@@ -68,7 +68,23 @@
 }
 
 .form__field-container_discount {
+  display: grid;
+  grid-template-areas:
+    'label label'
+    'checkbox input';
   grid-area: discount;
+  grid-template-columns: 40px 1fr;
+  column-gap: 10px;
+}
+
+.form__label_discount {
+  grid-area: label;
+}
+.form__checkbox_discount {
+  grid-area: checkbox;
+}
+.form__input_discount {
+  grid-area: input;
 }
 
 .form__field-container_description {
@@ -106,7 +122,6 @@
 }
 
 .form__input:disabled {
-  width: 78%;
   vertical-align: top;
   background-color: #eee;
   transition: background-color 0.3s ease-in-out;
@@ -116,13 +131,11 @@
   position: relative;
   width: 40px;
   height: 40px;
-  margin-right: 10px;
   border-radius: 6px;
   background-color: var(--input-bg-color);
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  vertical-align: top;
 }
 
 .form__checkbox::after {
@@ -145,8 +158,32 @@
 
 .form__file-container {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
   grid-area: file;
   padding-top: 20px;
+}
+
+.form__btn-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px 24px;
+}
+
+.form__btn-text {
+  display: none;
+  min-width: 250px;
+  width: 100%;
+  align-self: flex-start;
+  color: #d80101;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
 }
 
 .form__file {
@@ -159,14 +196,42 @@
 }
 
 .form__file-prewiev {
-  display: none;
-  align-items: center;
-  justify-content: center;
+  position: relative;
+  width: 100%;
+  width: max-content;
+}
+
+.form__file-prewiev::after {
+  content: '';
+  display: block;
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.form__file-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  z-index: 1000;
+  cursor: pointer;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.form__file-prewiev:hover .form__file-icon,
+.form__file-prewiev:hover::after {
+  opacity: 1;
 }
 
 .form__total-price-container {
   display: flex;
   justify-content: space-between;
+  gap: 15px;
+  flex-wrap: wrap;
   padding: 0 28px;
 }
 
@@ -180,7 +245,71 @@
 }
 
 .form__btn_file {
+  min-width: 250px;
   width: 100%;
+  width: 100%;
+  width: 100%;
+  align-self: flex-end;
   font-size: 14px;
   cursor: pointer;
+}
+
+@media (max-width: 830px) {
+  .form__btn-container {
+    flex-direction: column;
+    align-self: stretch;
+  }
+}
+
+@media (max-width: 768px) {
+  .modal__title {
+    font-size: 20px;
+  }
+
+  .form__fieldset {
+    grid-template-areas:
+      'name'
+      'category'
+      'units'
+      'discount'
+      'description'
+      'count'
+      'price'
+      'file';
+    grid-template-columns: 1fr;
+    padding: 15px;
+  }
+
+  .form__total-price-container {
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 570px) {
+  .overlay {
+    padding: 20px;
+  }
+
+  .modal__main {
+    padding: 10px;
+  }
+
+  .modal__header {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+  }
+
+  .form__total-price-container {
+    padding: 20px;
+    justify-content: center;
+  }
+
+  .section__btn-goods {
+    width: 100%;
+  }
+
+  .form__btn_close {
+    top: 10px;
+    right: 10px;
+  }
 }
