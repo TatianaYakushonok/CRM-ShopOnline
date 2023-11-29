@@ -99,6 +99,7 @@ hr {
 }
 
 .section__container {
+  border-radius: 5px;
   background-color: #fff;
   box-shadow: var(--container-box-shadow);
 }
@@ -121,11 +122,6 @@ hr {
   color: var(--btn-color);
   font-size: 18px;
   font-weight: 700;
-}
-
-.section__line {
-  height: 1px;
-  background-color: #c6c2de;
 }
 
 .section__btn-goods {
