@@ -251,11 +251,13 @@
 .form__btn_file {
   min-width: 250px;
   width: 100%;
-  width: 100%;
-  width: 100%;
   align-self: flex-end;
   font-size: 14px;
   cursor: pointer;
+}
+
+.modal__open {
+  display: flex;
 }
 
 @media (max-width: 830px) {
