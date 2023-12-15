@@ -9,22 +9,45 @@ const formTotalPrice = document.querySelector('.form__total-price');
 
 import goods from './goods.json' assert { type: 'json' };
 
-const createRow = (obj) => {
+const createRows = ({ id, title, category, units, count, price }) => {
   const tr = document.createElement('tr');
-  for (let key in obj) {
-    tr.innerHTML += `<td>${obj[key]}</td>`;
-  }
+  tr.classList.add('table__row');
+
+  const tdId = document.createElement('td');
+  tdId.classList.add('table__ceil');
+  tdId.textContent = id;
+
+  const tdTitle = document.createElement('td');
+  tdTitle.classList.add('table__ceil');
+  tdTitle.textContent = title;
+
+  const tdCategory = document.createElement('td');
+  tdCategory.classList.add('table__ceil');
+  tdCategory.textContent = category;
+
+  const tdUnits = document.createElement('td');
+  tdUnits.classList.add('table__ceil', 'table__ceil_units');
+  tdUnits.textContent = units;
+
+  const tdCount = document.createElement('td');
+  tdCount.classList.add('table__ceil', 'table__ceil_count');
+  tdCount.textContent = count;
+
+  const tdPrice = document.createElement('td');
+  tdPrice.classList.add('table__ceil', 'table__ceil_price');
+  tdPrice.textContent = `$${price}`;
+
+  tr.append(tdId, tdTitle, tdCategory, tdUnits, tdCount, tdPrice);
 
   return tr;
 };
 
 const renderGoods = (arrObj) => {
-  const table = document.createElement('table');
-  arrObj.map((item) => {
-    table.append(createRow(item));
-  });
+  const table = document.querySelector('.table__body');
+  const rows = arrObj.map(createRows);
+  table.append(...rows);
 
   return table;
 };
 
-console.log(renderGoods(goods));
+renderGoods(goods);
