@@ -37,7 +37,11 @@ const createRows = ({ id, title, category, units, count, price }) => {
   tdPrice.classList.add('table__ceil', 'table__ceil_price');
   tdPrice.textContent = `$${price}`;
 
-  tr.append(tdId, tdTitle, tdCategory, tdUnits, tdCount, tdPrice);
+  const tdTotalPrice = document.createElement('td');
+  tdTotalPrice.classList.add('table__ceil', 'table__ceil_total-sum');
+  tdTotalPrice.textContent = `$${price * count}`;
+
+  tr.append(tdId, tdTitle, tdCategory, tdUnits, tdCount, tdPrice, tdTotalPrice);
 
   return tr;
 };
