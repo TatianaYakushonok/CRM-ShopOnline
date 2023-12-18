@@ -1,11 +1,14 @@
 .overlay {
-  display: none;
+  display: block;
   position: fixed;
   inset: 0;
   padding: 30px;
   background-color: rgba(0, 0, 0, 0.5);
   overflow-y: auto;
   cursor: pointer;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .modal__main {
@@ -257,7 +260,9 @@
 }
 
 .modal__open {
-  display: flex;
+  /*display: block;*/
+  visibility: visible;
+  opacity: 1;
 }
 
 @media (max-width: 830px) {

@@ -6,8 +6,30 @@ const form = document.querySelector('.form');
 const formCheckDiscount = document.querySelector('.form__checkbox_discount');
 const formInputDiscount = document.querySelector('.form__input_discount');
 const formTotalPrice = document.querySelector('.form__total-price');
+const btnGoods = document.querySelector('.filter__btn-goods');
+const modal = document.querySelector('.modal');
+const btnClose = document.querySelector('.form__btn_close');
 
 import goods from './goods.json' assert { type: 'json' };
+
+const openModal = (e) => {
+  if (e.target.closest('.filter__btn-goods')) {
+    modal.classList.add('modal__open');
+    window.addEventListener('keydown', closeModal);
+  }
+};
+
+const closeModal = (e) => {
+  console.log(e.target);
+  if (e.target.closest('.form__btn_close') || e.target === modal) {
+    modal.classList.remove('modal__open');
+    window.addEventListener('keydown', closeModal);
+  }
+};
+
+btnGoods.addEventListener('click', openModal);
+btnClose.addEventListener('click', closeModal);
+modal.addEventListener('click', closeModal);
 
 const createRows = ({ id, title, category, units, count, price }) => {
   const tr = document.createElement('tr');
