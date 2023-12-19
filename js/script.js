@@ -26,9 +26,6 @@ const closeModal = (e) => {
   }
 };
 
-btnGoods.addEventListener('click', openModal);
-modal.addEventListener('click', closeModal);
-
 const createRows = ({ id, title, category, units, count, price }) => {
   const tr = document.createElement('tr');
   tr.classList.add('table__row');
@@ -67,7 +64,7 @@ const createRows = ({ id, title, category, units, count, price }) => {
             stroke-linecap="round" stroke-linejoin="round" />
         </svg>
       </button>
-      <button class="table__btn" type="button">
+      <button class="table__btn table__btn_del" type="button">
         <svg xmlns="http://www.w3.org/2000/svg" width="20"
           height="20" viewBox="0 0 20 20" fill="none">
           <path
@@ -90,4 +87,24 @@ const renderGoods = (arrObj) => {
   return table;
 };
 
-renderGoods(goods);
+const removeRow = (e) => {
+  const target = e.target;
+  if (target.closest('.table__btn_del')) {
+    target.closest('.table__row').remove();
+  }
+};
+
+const init = () => {
+  const table = renderGoods(goods);
+  console.log(table);
+
+  table.addEventListener('click', (e) => {
+    removeRow(e);
+    console.log(table);
+  });
+
+  btnGoods.addEventListener('click', openModal);
+  modal.addEventListener('click', closeModal);
+};
+
+init();
