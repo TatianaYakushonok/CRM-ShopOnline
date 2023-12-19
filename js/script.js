@@ -23,7 +23,7 @@ const closeModal = (e) => {
   console.log(e.target);
   if (e.target.closest('.form__btn_close') || e.target === modal) {
     modal.classList.remove('modal__open');
-    window.addEventListener('keydown', closeModal);
+    window.removeEventListener('keydown', closeModal);
   }
 };
 
