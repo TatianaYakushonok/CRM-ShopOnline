@@ -20,7 +20,6 @@ const openModal = (e) => {
 };
 
 const closeModal = (e) => {
-  console.log(e.target);
   if (e.target.closest('.form__btn_close') || e.target === modal) {
     modal.classList.remove('modal__open');
     window.removeEventListener('keydown', closeModal);
@@ -28,7 +27,6 @@ const closeModal = (e) => {
 };
 
 btnGoods.addEventListener('click', openModal);
-btnClose.addEventListener('click', closeModal);
 modal.addEventListener('click', closeModal);
 
 const createRows = ({ id, title, category, units, count, price }) => {
