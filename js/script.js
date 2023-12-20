@@ -87,21 +87,21 @@ const renderGoods = (arrObj) => {
   return table;
 };
 
-const removeRow = (e) => {
-  const target = e.target;
-  if (target.closest('.table__btn_del')) {
-    target.closest('.table__row').remove();
-  }
+const removeRow = (table) => {
+  table.addEventListener('click', (e) => {
+    const target = e.target;
+    if (target.closest('.table__btn_del')) {
+      target.closest('.table__row').remove();
+      console.log(table);
+    }
+  });
 };
 
 const init = () => {
   const table = renderGoods(goods);
   console.log(table);
 
-  table.addEventListener('click', (e) => {
-    removeRow(e);
-    console.log(table);
-  });
+  removeRow(table);
 
   btnGoods.addEventListener('click', openModal);
   modal.addEventListener('click', closeModal);
