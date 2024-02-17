@@ -21,6 +21,26 @@ const removeRow = (totalPrice, table, totalSum, formTotalSum) => {
   });
 };
 
+export const openGoodsPic = (table) => {
+  table.addEventListener('click', (e) => {
+    const target = e.target;
+    if (target.closest('.table__btn_pic')) {
+      const pic = target.closest('.table__row').dataset.pic;
+      const topWin = (screen.height - 600) / 2;
+      const leftWin = (screen.width - 600) / 2;
+      const win = open(
+        'about:blank',
+        '',
+        `width=600,height=600,top=${topWin},left=${leftWin}`,
+      );
+      console.log(topWin);
+      win.document.body.innerHTML = `
+        <img src=${pic} alt=''>
+      `;
+    }
+  });
+};
+
 const modalControl = (btnGoods, modal) => {
   const openModal = () => {
     modal.classList.add('modal__open');

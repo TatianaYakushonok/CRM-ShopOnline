@@ -1,7 +1,10 @@
+const url = '../../img/goods-img-2.jpeg';
+
 export const createRows = ({ id, title, category, units, count, price }) => {
   const tr = document.createElement('tr');
   tr.classList.add('table__row');
   tr.setAttribute('data-id', id);
+  tr.setAttribute('data-pic', url);
   tr.insertAdjacentHTML(
     'beforeend',
     `
@@ -13,7 +16,7 @@ export const createRows = ({ id, title, category, units, count, price }) => {
     <td class="table__ceil table__ceil_price">$${price}</td>
     <td class="table__ceil table__ceil_total-sum">$${price * count}</td>
     <td class="table__ceil table__ceil_btn">
-      <button class="table__btn" type="button">
+      <button class="table__btn table__btn_pic" type="button">
         <svg xmlns="http://www.w3.org/2000/svg" width="20"
           height="20" viewBox="0 0 20 20" fill="none">
           <path

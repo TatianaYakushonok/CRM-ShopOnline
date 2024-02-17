@@ -2,7 +2,7 @@ import goods from './goods.json' assert { type: 'json' };
 import constant from './modules/constant.js';
 const { form, btnGoods, modal, totalSum, formTotalSum } = constant;
 import { renderGoods } from './modules/render.js';
-import control from './modules/control.js';
+import control, { openGoodsPic } from './modules/control.js';
 const {
   calculateTotalSum,
   removeRow,
@@ -18,6 +18,7 @@ const init = () => {
   const totalPrice = calculateTotalSum(goods);
 
   removeRow(totalPrice, table, totalSum, formTotalSum);
+  openGoodsPic(table);
 
   const { closeModal } = modalControl(btnGoods, modal);
   formControl(totalPrice, form, table, closeModal, totalSum, formTotalSum);
