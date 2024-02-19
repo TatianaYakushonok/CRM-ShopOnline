@@ -28,13 +28,16 @@ export const openGoodsPic = (table) => {
       const pic = target.closest('.table__row').dataset.pic;
       const topWin = (screen.height - 600) / 2;
       const leftWin = (screen.width - 600) / 2;
-      const win = open(
-        'about:blank',
-        '',
-        `width=600,height=600,top=${topWin},left=${leftWin}`,
-      );
-      console.log(topWin);
-      win.document.body.innerHTML = `
+      const win =
+        pic !== ''
+          ? open(
+              'about:blank',
+              '',
+              `width=600,height=600,top=${topWin},left=${leftWin}`,
+            )
+          : false;
+      if (win)
+        win.document.body.innerHTML = `
         <img src=${pic} alt=''>
       `;
     }
