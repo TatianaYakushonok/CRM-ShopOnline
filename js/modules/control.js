@@ -1,21 +1,20 @@
-import goods from '../goods.json' assert { type: 'json' };
 import { createRows } from './createRows.js';
 
-const removeGoodData = (id) => {
-  const index = goods.findIndex((item) => item.id.toString() === id);
+const removeGoodData = (data, id) => {
+  const index = data.findIndex((item) => item.id.toString() === id);
   if (index !== -1) {
-    goods.splice(index, 1);
+    data.splice(index, 1);
   }
 };
 
-const removeRow = (totalPrice, table, totalSum, formTotalSum) => {
+const removeRow = (data, totalPrice, table, totalSum, formTotalSum) => {
   table.addEventListener('click', (e) => {
     const target = e.target;
     if (target.closest('.table__btn_del')) {
       const id = target.closest('.table__row').dataset.id;
       target.closest('.table__row').remove();
-      removeGoodData(id);
-      totalPrice = calculateTotalSum(goods);
+      removeGoodData(data, id);
+      totalPrice = calculateTotalSum(data);
       addTotalSum(totalPrice, totalSum, formTotalSum);
     }
   });
@@ -67,8 +66,8 @@ const modalControl = (btnGoods, modal) => {
   };
 };
 
-const addGoodData = (totalPrice, newGood, totalSum, formTotalSum) => {
-  goods.push(newGood);
+const addGoodData = (data, totalPrice, newGood, totalSum, formTotalSum) => {
+  data.push(newGood);
   addTotalSum(totalPrice, totalSum, formTotalSum);
 };
 
@@ -78,6 +77,7 @@ const addGoodPage = (newGood, table) => {
 };
 
 const formControl = (
+  data,
   totalPrice,
   form,
   table,
@@ -92,9 +92,9 @@ const formControl = (
     /*const id = goods.length;
     newGoods[id] = id;
     console.log(newGoods[id]);*/
-    addGoodData(totalPrice, newGoods, totalSum, formTotalSum);
+    addGoodData(data, totalPrice, newGoods, totalSum, formTotalSum);
     addGoodPage(newGoods, table);
-    totalPrice = calculateTotalSum(goods);
+    totalPrice = calculateTotalSum(data);
     addTotalSum(totalPrice, totalSum, formTotalSum);
 
     form.reset();
