@@ -3,7 +3,7 @@ const { form, btnGoods, modal, totalSum, formTotalSum } = constant;
 import { renderGoods } from './modules/render.js';
 import control, { openGoodsPic } from './modules/control.js';
 import { fetchRequest, getDataGoods } from './modules/fetchRequest.js';
-import { createRows } from './modules/createRows.js';
+
 const {
   calculateTotalSum,
   removeRow,
@@ -17,14 +17,14 @@ const {
 const init = async () => {
   const table = document.querySelector('.table__body');
   fetchRequest(URL, {
-    callback: createRows,
+    callback: renderGoods,
   });
 
   const { goods } = await getDataGoods(URL);
+
   const totalPrice = calculateTotalSum(goods);
   removeRow(goods, totalPrice, table, totalSum, formTotalSum);
   openGoodsPic(table);
-
   const { closeModal } = modalControl(btnGoods, modal);
   formControl(
     goods,
