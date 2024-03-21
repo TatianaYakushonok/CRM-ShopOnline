@@ -1,8 +1,9 @@
-.modal__error {
+.modal__error,
+.modal__message {
   position: fixed;
   top: 50%;
   left: 50%;
-  display: none;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -10,13 +11,17 @@
   width: 100%;
   max-width: 350px;
   min-height: 350px;
+  padding: 20px;
+  visibility: hidden;
+  opacity: 0;
   transform: translate(-50%, -50%);
   background-color: var(--bg-color);
   box-shadow: var(--container-box-shadow);
   z-index: 2000;
 }
 
-.modal__error-message {
+.modal__error-message,
+.modal__message-text {
   color: var(--title-color);
   font-size: 18px;
   font-weight: 700;
@@ -31,4 +36,9 @@
   width: 20px;
   height: 20px;
   background: url('../img/close.svg') center/cover no-repeat;
+}
+
+.modal__error-open {
+  visibility: visible;
+  opacity: 1;
 }

@@ -1,4 +1,6 @@
+import { URL } from './constant.js';
 import { createRows } from './createRows.js';
+import { fetchRequest } from './fetchRequest.js';
 
 const removeGoodData = (data, id) => {
   const index = data.findIndex((item) => item.id.toString() === id);
@@ -13,8 +15,7 @@ const removeRow = (data, totalPrice, table, totalSum, formTotalSum) => {
     if (target.closest('.table__btn_del')) {
       const id = target.closest('.table__row').dataset.id;
       target.closest('.table__row').remove();
-      removeGoodData(data, id);
-      totalPrice = calculateTotalSum(data);
+      calculateTotalSum(data);
       addTotalSum(totalPrice, totalSum, formTotalSum);
     }
   });
@@ -66,6 +67,63 @@ const modalControl = (btnGoods, modal) => {
   };
 };
 
+const createModalError = () => {
+  const modalErr = document.createElement('div');
+  modalErr.classList.add('modal__error');
+  modalErr.insertAdjacentHTML(
+    'beforeend',
+    `
+    <svg xmlns="http://www.w3.org/2000/svg" width="94" height="94"
+      viewBox="0 0 94 94" fill="none">
+      <path d="M2 2L92 92" stroke="#D80101" stroke-width="3"
+        stroke-linecap="round" />
+      <path d="M2 92L92 2" stroke="#D80101" stroke-width="3"
+        stroke-linecap="round" />
+    </svg>
+    <p class="modal__error-message">Что-то пошло не так...</p>
+    <button class="modal__error_close" type="button"></button>
+    `,
+  );
+
+  document.body.append(modalErr);
+};
+
+const createModalMessage = (nameProduct) => {
+  const modalMessage = document.createElement('div');
+  modalMessage.classList.add('modal__message');
+  modalMessage.insertAdjacentHTML(
+    'beforeend',
+    `
+    <p class="modal__message-text">Товар ${nameProduct} успешно добавлен</p>
+    <button class="modal__error_close" type="button"></button>
+    `,
+  );
+
+  document.body.append(modalMessage);
+};
+
+const modalMessageControl = (err, modal) => {
+  const modalMessage = document.querySelector(modal);
+
+  const openModal = () => {
+    modalMessage.classList.add('modal__error-open');
+  };
+
+  const closeModal = () => {
+    modalMessage.classList.remove('modal__error-open');
+  };
+
+  if (err || modalMessage.classList.contains('modal__message')) {
+    openModal();
+  }
+
+  modalMessage.addEventListener('click', ({ target }) => {
+    if (target.closest('.modal__error_close')) {
+      closeModal();
+    }
+  });
+};
+
 const addGoodData = (data, totalPrice, newGood, totalSum, formTotalSum) => {
   data.push(newGood);
   addTotalSum(totalPrice, totalSum, formTotalSum);
@@ -87,18 +145,30 @@ const formControl = (
 ) => {
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const formData = new FormData(e.target);
+    const formData = new FormData(form);
     const newGoods = Object.fromEntries(formData);
-    /*const id = goods.length;
-    newGoods[id] = id;
-    console.log(newGoods[id]);*/
+    fetchRequest(URL, {
+      method: 'POST',
+      body: newGoods,
+      callback(err, data) {
+        if (err) {
+          console.warn(err, data);
+          createModalError();
+          modalMessageControl(err, '.modal__error');
+        }
+        createModalMessage(data.title);
+        modalMessageControl(null, '.modal__message');
+        addGoodPage(data, table);
+        form.reset();
+        closeModal();
+      },
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
     addGoodData(data, totalPrice, newGoods, totalSum, formTotalSum);
-    addGoodPage(newGoods, table);
     totalPrice = calculateTotalSum(data);
     addTotalSum(totalPrice, totalSum, formTotalSum);
-
-    form.reset();
-    closeModal();
   });
   addTotalSum(totalPrice, totalSum, formTotalSum);
 };
