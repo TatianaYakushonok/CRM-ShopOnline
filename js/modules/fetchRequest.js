@@ -7,7 +7,6 @@ export const fetchRequest = async (
       method,
     };
     if (body) options.body = JSON.stringify(body);
-    console.log(body);
     if (headers) options.headers = headers;
 
     const response = await fetch(url, options);

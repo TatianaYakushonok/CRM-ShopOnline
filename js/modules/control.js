@@ -29,7 +29,7 @@ export const openGoodsPic = (table) => {
       const topWin = (screen.height - 600) / 2;
       const leftWin = (screen.width - 600) / 2;
       const win =
-        pic !== ''
+        pic !== 'image/notimage.jpg'
           ? open(
               'about:blank',
               '',
